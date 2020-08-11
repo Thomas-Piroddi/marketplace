@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 
   def index
+    @books = Book.order(:title)
   end
   def account
   end
