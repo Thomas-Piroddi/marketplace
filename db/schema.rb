@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_11_070744) do
+ActiveRecord::Schema.define(version: 2020_08_11_074806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,10 @@ ActiveRecord::Schema.define(version: 2020_08_11_070744) do
     t.integer "price"
     t.text "location"
     t.text "description"
+    t.bigint "genre_id", null: false
+    t.bigint "condition_id", null: false
+    t.index ["condition_id"], name: "index_books_on_condition_id"
+    t.index ["genre_id"], name: "index_books_on_genre_id"
   end
 
   create_table "conditions", force: :cascade do |t|
@@ -63,9 +67,12 @@ ActiveRecord::Schema.define(version: 2020_08_11_070744) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.integer "postcode"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "books", "conditions"
+  add_foreign_key "books", "genres"
   add_foreign_key "payments", "books", column: "books_id"
   add_foreign_key "payments", "users", column: "users_id"
 end
