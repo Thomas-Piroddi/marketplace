@@ -39,19 +39,20 @@ for i in 1..5
   genre_id: genre.id,
   user_id: user.id,
   title: Faker::Lorem.words(1),
-  description: Faker::Lorem.words(50),
+  description: Faker::Lorem.words(number: 50),
   location: rand(1500..4500),
   )
   book.save!
   puts "Created book #{ book.title} "
 end
 
-  
+#Passing `number` with the 1st argument of 
+#`words` is deprecated. Use keyword argument like `words(number: ...)` instead.
   #temp_prod_file = Down.download(Faker::LoremFlickr.image(size: "300x300", search_terms: ['book', 'novel']))
   #prod.picture.attach(io: temp_prod_file, filename: File.basename(temp_prod_file.path))
 
-  prod.save!
-  puts "Created a #{ genre.name } novel called #{ book.name } belonging to #{ user.name } in #{ condition.name } condition."
+  #prod.save!
+  #puts "Created a #{ genre.name } novel called #{ book.name } belonging to #{ user.name } in #{ condition.name } condition."
 
 
   
