@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.order('created_at desc').where('purchased = false').page params[:page]
+    @books = Book.where('purchased = false')
     @books = @books.search(params[:search]) if params[:search].present?
   if params[:condition_id].present?
       @books = @books.condition_id(params[:condition_id])

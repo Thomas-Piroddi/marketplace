@@ -1,7 +1,7 @@
 conditions = Condition.create([
-  { name: "Worn", description: "Book are in poor aesthetic condition that will usually require repair or work. " },
-  { name: "Fair", description: "Book have a generally decent aesthetic although they're not free of small cosmetic issues/blemishes." },
-  { name: "Good", description: "Book are mostly aesthetic, however, may have some slight cosmetic blemishes." },
+  { name: "Worn", description: "Book is in poor aesthetic condition that will usually require repair or work. " },
+  { name: "Fair", description: "Book has a generally decent aesthetic although they're not free of small cosmetic issues/blemishes." },
+  { name: "Good", description: "Book is mostly aesthetic, however, may have some slight cosmetic blemishes." },
   { name: "Excellent", description: "Book is in almost-new or new condition, free of any signs of wear or blemishes." }
 ])
 
@@ -25,7 +25,6 @@ for i in 1..5
   user.save!
   puts "Created user #{ user.name} "
 end
-
 
 for i in 1..5
   user = User.order('RANDOM()').first
