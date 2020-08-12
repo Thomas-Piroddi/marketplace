@@ -46,6 +46,13 @@ for i in 1..5
   puts "Created book #{ book.title} "
 end
 
+  
+  #temp_prod_file = Down.download(Faker::LoremFlickr.image(size: "300x300", search_terms: ['book', 'novel']))
+  #prod.picture.attach(io: temp_prod_file, filename: File.basename(temp_prod_file.path))
+
+  prod.save!
+  puts "Created a #{ genre.name } novel called #{ book.name } belonging to #{ user.name } in #{ condition.name } condition."
+
 
   
 
